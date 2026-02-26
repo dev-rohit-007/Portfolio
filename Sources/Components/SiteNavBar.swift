@@ -4,18 +4,12 @@ import Ignite
 struct SiteNavBar: HTML {
     var body: some HTML {
         NavigationBar {
-            Link("Home", target: "/")
-            Link("Projects", target: Projects())
-            Link("About", target: About())
-
-            Link(target: "https://github.com/dev-rohit-007") {
-                Image(systemName: "github")
-                    .accessibilityLabel("GitHub")
-            }
-            .target(.blank)
-            .relationship(.noOpener, .noReferrer)
+            Link("SERVICES", target: "#services")
+            Link("PORTFOLIO", target: "#portfolio")
+            Link("ABOUT", target: "#about")
+            Link("TECH", target: "#tech")
         } logo: {
-            Span("RM")
+            Span("iOS Developer portfolio")
                 .class("navbar-brand-custom")
         }
         .navigationItemAlignment(.trailing)

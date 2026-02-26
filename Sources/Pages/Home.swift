@@ -6,7 +6,9 @@ struct Home: StaticPage {
 
     var body: some HTML {
         HeroSection()
-        FeaturedProjects()
-        SkillsSection()
+        ServicesSection()
+        PortfolioSection()
+        AboutSection()
+        TechSection()
     }
 }

@@ -16,16 +16,11 @@ struct IgniteWebsite {
 
 struct PortfolioSite: Site {
     var name = "Rohit Mishra"
-    var titleSuffix = " – Rohit Mishra | Developer Portfolio"
+    var titleSuffix = " – iOS Developer Portfolio"
     var url = URL(static: "https://dev-rohit-007.github.io/Portfolio")
     var builtInIconsEnabled = true
     var author = "Rohit Mishra"
 
     var homePage = Home()
     var layout = MainLayout()
-
-    var staticPages: [any StaticPage] {
-        Projects()
-        About()
-    }
 }

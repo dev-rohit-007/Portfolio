@@ -5,28 +5,24 @@ struct HeroSection: HTML {
     var body: some HTML {
         Section {
             Section {
-                Section {
-                    Text("RM")
-                        .class("initials")
+                Text {
+                    Image(systemName: "apple")
+                        .accessibilityLabel("Apple logo")
                 }
-                .class("hero-profile-photo")
+                .class("hero-apple-icon")
 
-                Text("Rohit Mishra")
-                    .font(.title1)
-                    .class("hero-heading")
+                Section {
+                    Text("Welcome to my site!")
+                        .class("hero-welcome")
 
-                Text("Software Developer")
-                    .class("hero-subtitle")
+                    Text("IT'S NICE TO MEET YOU")
+                        .class("hero-heading")
+
+                    Link("TELL ME MORE", target: "#services")
+                        .class("hero-btn")
+                }
+                .class("hero-content")
             }
-            .class("hero-content")
-
-            Section {
-                Text("portfolio")
-                    .class("hero-cta-text")
-                Text("▼")
-                    .class("scroll-arrow")
-            }
-            .class("hero-cta")
         }
         .class("hero-section")
     }

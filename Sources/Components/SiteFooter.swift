@@ -4,35 +4,34 @@ import Ignite
 struct SiteFooter: HTML {
     var body: some HTML {
         Section {
-            Section {
-                HStack {
-                    Text("© 2026 Rohit Mishra")
-                        .class("footer-text")
+            HStack {
+                Text("Copyright © Rohit Mishra Portfolio 2026")
+                    .class("footer-copyright")
 
-                    HStack {
-                        Link(target: "https://github.com/dev-rohit-007") {
-                            Image(systemName: "github")
-                                .accessibilityLabel("GitHub")
-                        }
-                        .target(.blank)
-                        .relationship(.noOpener, .noReferrer)
-
-                        Link(target: "https://linkedin.com/in/") {
-                            Image(systemName: "linkedin")
-                                .accessibilityLabel("LinkedIn")
-                        }
-                        .target(.blank)
-                        .relationship(.noOpener, .noReferrer)
-
-                        Link(target: "mailto:your.email@example.com") {
-                            Image(systemName: "envelope-fill")
-                                .accessibilityLabel("Email")
-                        }
-                    }
-                    .font(.title4)
+                Section {
+                    SocialLink(url: "https://twitter.com/", icon: "twitter-x", label: "Twitter")
+                    SocialLink(url: "https://github.com/dev-rohit-007", icon: "github", label: "GitHub")
+                    SocialLink(url: "https://linkedin.com/in/", icon: "linkedin", label: "LinkedIn")
+                    SocialLink(url: "mailto:your.email@example.com", icon: "envelope-fill", label: "Email")
                 }
             }
         }
-        .class("site-footer mt-auto")
+        .class("site-footer")
+    }
+}
+
+struct SocialLink: HTML {
+    let url: String
+    let icon: String
+    let label: String
+
+    var body: some HTML {
+        Link(target: url) {
+            Image(systemName: icon)
+                .accessibilityLabel(label)
+        }
+        .target(.blank)
+        .relationship(.noOpener, .noReferrer)
+        .class("social-circle")
     }
 }
