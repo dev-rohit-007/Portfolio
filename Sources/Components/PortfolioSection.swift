@@ -13,6 +13,20 @@ struct PortfolioSection: HTML {
 
                 Grid {
                     ProjectCard(
+                        name: "Pocket FM - CarPlay",
+                        description: "End-to-end CarPlay integration for the audio streaming platform. Fixed crashes, image scaling, background playback, and offline handling.",
+                        tags: ["CarPlay", "AVFoundation", "UIKit"],
+                        icon: "car-fill",
+                        colorClass: "project-pocketfm"
+                    )
+                    ProjectCard(
+                        name: "Pocket FM - Home & Collections",
+                        description: "Built the Collections Module and Home Screen revamp for better content discovery. Server-driven UI architecture.",
+                        tags: ["SDUI", "UIKit", "REST API"],
+                        icon: "music-note-list",
+                        colorClass: "project-pocketfm2"
+                    )
+                    ProjectCard(
                         name: "Google Home (Camera)",
                         description: "Developed and tested camera integration features for the iOS Google Home app. Implemented analytics logging for camera events.",
                         tags: ["UIKit", "Testing", "Analytics"],

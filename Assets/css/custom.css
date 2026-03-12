@@ -52,7 +52,7 @@ body {
    NAVBAR
    ======================================== */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.85) !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     padding: 0.8rem 2rem !important;
@@ -378,6 +378,10 @@ body {
     height: 100%;
 }
 
+.projects-grid .col {
+    padding: 0.75rem !important;
+}
+
 .project-card:hover {
     border-color: rgba(240, 81, 56, 0.3);
     transform: translateY(-4px);
@@ -399,6 +403,8 @@ body {
     color: white;
 }
 
+.project-pocketfm { background: linear-gradient(135deg, #FF6B00, #FF9500); }
+.project-pocketfm2 { background: linear-gradient(135deg, #FF9500, #FFCC00); }
 .project-google { background: linear-gradient(135deg, #4285F4, #34A853); }
 .project-practo { background: linear-gradient(135deg, #F05138, #FD6D42); }
 .project-video { background: linear-gradient(135deg, #5856D6, #AF52DE); }

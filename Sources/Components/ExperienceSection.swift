@@ -12,12 +12,26 @@ struct ExperienceSection: HTML {
                     .class("swift-section-subtitle")
 
                 ExperienceCard(
+                    company: "Pocket FM",
+                    role: "Software Engineer - iOS",
+                    period: "July 2025 – Present",
+                    highlights: [
+                        "Owning CarPlay integration — resolved crashes, image scaling issues, and background playback bugs for a seamless in-car audio experience.",
+                        "Building the Collections Module and Home Screen module changes, driving content discovery on the main landing page.",
+                        "Integrated FreshChat ticket history display and credits system changes for improved customer support flows.",
+                        "Writing comprehensive unit test suites for CarPlay, Audio Books, and NPS Survey modules.",
+                        "Fixing production bugs including auto-unlock toggle flicker, episode access for premium users, and Hindi language show descriptions."
+                    ],
+                    colorClass: "exp-pocketfm"
+                )
+
+                ExperienceCard(
                     company: "Flam",
                     role: "Software Engineer - iOS",
-                    period: "May 2025 – Present",
+                    period: "May 2025 – July 2025",
                     highlights: [
-                        "Working with ARKit to develop real-time 3D object tracking solutions.",
-                        "Creating a C++ library that interacts with the GPU to render UI elements on top of detected objects."
+                        "Worked with ARKit to develop real-time 3D object tracking solutions.",
+                        "Created a C++ library that interacts with the GPU to render UI elements on top of detected objects."
                     ],
                     colorClass: "exp-flam"
                 )
