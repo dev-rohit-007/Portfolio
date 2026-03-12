@@ -1,13 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --gold: #F5A623;
-    --dark: #2c2c2e;
-    --dark-hero: #1a1a1c;
-    --text-dark: #333333;
-    --text-muted: #777777;
-    --light-bg: #f0f2f4;
-    --white: #ffffff;
+    --swift-orange: #F05138;
+    --swift-orange-light: #FD6D42;
+    --swift-dark: #000000;
+    --swift-dark-alt: #111111;
+    --swift-dark-card: #1a1a1a;
+    --swift-white: #ffffff;
+    --swift-gray-100: #f5f5f7;
+    --swift-gray-200: #e8e8ed;
+    --swift-gray-400: #86868b;
+    --swift-gray-600: #6e6e73;
+    --swift-gray-800: #1d1d1f;
+    --swift-text: #1d1d1f;
+    --swift-text-muted: #6e6e73;
+    --gradient-orange: linear-gradient(135deg, #F05138 0%, #FD6D42 50%, #F7CE46 100%);
 }
 
 /* Force light theme */
@@ -20,489 +27,730 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif !important;
-    color: var(--text-dark);
-    background-color: var(--white) !important;
-    line-height: 1.8;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important;
+    color: var(--swift-text);
+    background-color: var(--swift-dark) !important;
+    line-height: 1.7;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-    background: rgba(245, 166, 35, 0.3);
+    background: rgba(240, 81, 56, 0.3);
+}
+
+/* ========================================
+   CONTAINER
+   ======================================== */
+.swift-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 /* ========================================
    NAVBAR
    ======================================== */
 .navbar {
-    background-color: transparent !important;
-    padding: 1.5rem 3rem !important;
-    transition: background-color 0.3s;
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    padding: 0.8rem 2rem !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: none !important;
-}
-
-.navbar.scrolled {
-    background-color: rgba(26, 26, 28, 0.95) !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+    z-index: 1000;
 }
 
 .navbar-brand-custom {
-    font-family: 'Dancing Script', cursive !important;
-    font-size: 1.6rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    color: var(--gold) !important;
-    letter-spacing: 0.5px;
+    color: var(--swift-white) !important;
+    letter-spacing: -0.3px;
 }
 
 .navbar .nav-link,
 .navbar a {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.875rem;
     font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: all 0.3s;
+    letter-spacing: 0;
+    text-transform: none;
+    transition: color 0.2s;
+    padding: 0.5rem 1rem !important;
 }
 
 .navbar .nav-link:hover,
 .navbar a:hover {
-    color: var(--gold) !important;
+    color: var(--swift-white) !important;
 }
 
 /* ========================================
-   HERO SECTION
+   HERO SECTION — swift.org style
    ======================================== */
 .hero-section {
     position: relative;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #1a1a1c 100%);
+    background: var(--swift-dark);
     overflow: hidden;
+    padding-top: 60px;
 }
 
 .hero-section::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-        radial-gradient(ellipse at 30% 50%, rgba(0,0,0,0.3) 0%, transparent 70%),
-        radial-gradient(ellipse at 70% 50%, rgba(0,0,0,0.5) 0%, transparent 60%);
-    z-index: 1;
+    top: -50%;
+    right: -20%;
+    width: 80%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgba(240, 81, 56, 0.08) 0%, transparent 70%);
+    z-index: 0;
 }
 
-.hero-overlay-shape {
-    position: absolute;
-    bottom: -5%;
-    right: -5%;
-    width: 55%;
-    height: 110%;
-    background: #000000;
-    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+.hero-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
     z-index: 1;
-    opacity: 0.6;
-}
-
-.hero-apple-icon {
-    position: absolute;
-    right: 18%;
-    top: 40%;
-    font-size: 8rem;
-    color: rgba(255, 255, 255, 0.15);
-    z-index: 2;
+    width: 100%;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 3;
-    padding: 0 2rem;
+    flex: 1;
+    max-width: 600px;
 }
 
-.hero-welcome {
-    font-family: 'Dancing Script', cursive !important;
-    font-size: 2rem;
-    color: var(--gold);
+.hero-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--swift-orange);
+    letter-spacing: 2px;
+    text-transform: uppercase;
     margin-bottom: 1rem;
-    font-weight: 400;
 }
 
 .hero-heading {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 900;
-    color: var(--white);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 2rem;
-    line-height: 1.2;
+    color: var(--swift-white);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1.5px;
+}
+
+.hero-gradient-text {
+    background: var(--gradient-orange);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-tagline {
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--swift-gray-400);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 520px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 
 .hero-btn {
     display: inline-block;
-    background-color: var(--gold) !important;
-    color: var(--white) !important;
-    padding: 1rem 3rem !important;
-    font-size: 0.85rem !important;
-    font-weight: 700 !important;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border: none !important;
-    border-radius: 4px !important;
-    transition: all 0.3s;
+    background: var(--swift-orange) !important;
+    color: var(--swift-white) !important;
+    padding: 0.85rem 2rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    border-radius: 980px !important;
     text-decoration: none;
+    transition: all 0.3s;
+    border: none !important;
 }
 
 .hero-btn:hover {
-    background-color: #e09500 !important;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
+    background: var(--swift-orange-light) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(240, 81, 56, 0.3);
+}
+
+.hero-btn-outline {
+    display: inline-block;
+    background: transparent !important;
+    color: var(--swift-white) !important;
+    padding: 0.85rem 2rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    border-radius: 980px !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.hero-btn-outline:hover {
+    border-color: var(--swift-white) !important;
+    transform: translateY(-2px);
+}
+
+.hero-image-area {
+    flex: 0 0 auto;
+    position: relative;
+}
+
+.hero-swift-bird {
+    font-size: 12rem;
+    color: rgba(240, 81, 56, 0.12);
+    line-height: 1;
+}
+
+.hero-swift-bird i {
+    font-size: 12rem;
 }
 
 /* ========================================
    SECTION COMMON
    ======================================== */
+.section-dark {
+    background-color: var(--swift-dark);
+    padding: 6rem 2rem;
+}
+
 .section-white {
-    background-color: var(--white);
+    background-color: var(--swift-gray-100);
     padding: 6rem 2rem;
 }
 
-.section-gray {
-    background-color: var(--light-bg);
-    padding: 6rem 2rem;
+.swift-section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: inherit;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
 }
 
-.section-title {
-    font-size: 2.2rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--text-dark);
-    text-align: center;
-    margin-bottom: 0.8rem;
+.section-dark .swift-section-title {
+    color: var(--swift-white);
 }
 
-.section-subtitle {
-    font-size: 1rem;
-    font-style: italic;
-    font-weight: 300;
-    color: var(--text-muted);
-    text-align: center;
-    margin-bottom: 4rem;
+.section-white .swift-section-title {
+    color: var(--swift-text);
 }
 
-/* ========================================
-   SERVICES SECTION
-   ======================================== */
-.service-item {
-    text-align: center;
-    padding: 1rem;
-}
-
-.service-icon-circle {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background-color: var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.service-icon-circle:hover {
-    transform: scale(1.08);
-    box-shadow: 0 8px 25px rgba(245, 166, 35, 0.35);
-}
-
-.service-icon-circle i {
-    font-size: 3rem;
-    color: white;
-}
-
-.service-title {
+.swift-section-subtitle {
     font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 0.8rem;
+    font-weight: 400;
+    color: var(--swift-gray-400);
+    margin-bottom: 3.5rem;
 }
 
-.service-desc {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.7;
-    max-width: 280px;
-    margin: 0 auto;
+.section-white .swift-section-subtitle {
+    color: var(--swift-text-muted);
 }
 
 /* ========================================
-   PORTFOLIO SECTION
+   EXPERIENCE SECTION
    ======================================== */
-.portfolio-grid {
-    max-width: 900px;
-    margin: 0 auto;
+.exp-card {
+    background: var(--swift-dark-card);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: border-color 0.3s;
 }
 
-.portfolio-item {
-    text-align: center;
-    margin-bottom: 2.5rem;
+.exp-card:hover {
+    border-color: rgba(240, 81, 56, 0.3);
 }
 
-.app-icon {
-    width: 140px;
-    height: 140px;
-    border-radius: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+.exp-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.app-icon:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
-}
-
-.app-icon i {
-    font-size: 4rem;
-    color: white;
-}
-
-.app-icon-1 { background: linear-gradient(135deg, #F5A623 0%, #F7931E 100%); }
-.app-icon-2 { background: linear-gradient(135deg, #2BC4C3 0%, #1CA9A8 100%); }
-.app-icon-3 { background: linear-gradient(135deg, #2C2C2E 0%, #3A3A3C 100%); }
-.app-icon-4 { background: linear-gradient(135deg, #34C759 0%, #28A745 100%); }
-.app-icon-5 { background: linear-gradient(135deg, #007AFF 0%, #0055D4 100%); }
-.app-icon-6 { background: linear-gradient(135deg, #5856D6 0%, #4030B0 100%); }
-
-.portfolio-name {
-    font-size: 1rem;
+.exp-company {
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--swift-white);
     margin-bottom: 0.2rem;
 }
 
-.portfolio-category {
+.exp-role {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--swift-orange);
+    margin-bottom: 0.3rem;
+}
+
+.exp-period {
     font-size: 0.85rem;
-    font-style: italic;
-    color: var(--text-muted);
+    font-weight: 400;
+    color: var(--swift-gray-400);
+}
+
+.exp-highlight {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+.exp-arrow {
+    color: var(--swift-orange);
+    font-weight: 600;
+    margin-right: 0.3rem;
 }
 
 /* ========================================
-   ABOUT ME SECTION
+   FEATURE HIGHLIGHTS — swift.org style
    ======================================== */
-.about-text {
+.feature-block {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--swift-gray-200);
+}
+
+.feature-block:last-child {
+    border-bottom: none;
+}
+
+.feature-content {
     max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1rem;
-    font-style: italic;
-    font-weight: 300;
-    color: var(--text-muted);
-    line-height: 1.9;
+}
+
+.feature-left .feature-content {
+    margin-right: auto;
+}
+
+.feature-right .feature-content {
+    margin-left: auto;
+    text-align: right;
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: var(--swift-orange);
+    margin-bottom: 1rem;
+}
+
+.feature-icon i {
+    font-size: 2.5rem;
+}
+
+.feature-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--swift-text);
+    margin-bottom: 1rem;
+    letter-spacing: -0.3px;
+}
+
+.feature-desc {
+    font-size: 1.05rem;
+    color: var(--swift-text-muted);
+    line-height: 1.8;
+}
+
+/* ========================================
+   PROJECTS SECTION
+   ======================================== */
+.projects-grid {
+    max-width: 100%;
+}
+
+.project-card {
+    background: var(--swift-dark-card);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s;
+    height: 100%;
+}
+
+.project-card:hover {
+    border-color: rgba(240, 81, 56, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.project-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+}
+
+.project-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.project-google { background: linear-gradient(135deg, #4285F4, #34A853); }
+.project-practo { background: linear-gradient(135deg, #F05138, #FD6D42); }
+.project-video { background: linear-gradient(135deg, #5856D6, #AF52DE); }
+.project-flam { background: linear-gradient(135deg, #FF9500, #FF3B30); }
+.project-trailer { background: linear-gradient(135deg, #30D158, #34C759); }
+
+.project-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--swift-white);
+    margin-bottom: 0.6rem;
+}
+
+.project-desc {
+    font-size: 0.9rem;
+    color: var(--swift-gray-400);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-tag {
+    display: inline-block;
+    background: rgba(240, 81, 56, 0.1);
+    color: var(--swift-orange);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 980px;
+    letter-spacing: 0.3px;
 }
 
 /* ========================================
    TECH SECTION
    ======================================== */
-.tech-grid {
-    max-width: 800px;
-    margin: 0 auto;
+.tech-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
 }
 
-.tech-item {
-    text-align: center;
-    padding: 1.5rem;
+.tech-cat-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--swift-text-muted);
     margin-bottom: 1rem;
 }
 
-.tech-icon-box {
-    width: 90px;
-    height: 90px;
-    border-radius: 18px;
+.tech-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.tech-pill {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 0 auto 0.8rem;
-    font-size: 2.2rem;
-    font-weight: 700;
-    transition: transform 0.3s;
+    gap: 0.6rem;
+    background: var(--swift-white);
+    border: 1px solid var(--swift-gray-200);
+    border-radius: 12px;
+    padding: 0.7rem 1.2rem;
+    transition: all 0.2s;
 }
 
-.tech-icon-box:hover {
-    transform: scale(1.1);
+.tech-pill:hover {
+    border-color: var(--swift-orange);
+    box-shadow: 0 4px 12px rgba(240, 81, 56, 0.1);
+    transform: translateY(-2px);
 }
 
-.tech-icon-box i {
-    font-size: 2.5rem;
+.tech-pill-icon {
+    font-size: 1.2rem;
+    line-height: 1;
 }
 
-.tech-xcode { background: #63D2FF; color: white; }
-.tech-swift { background: #FF6B35; color: white; }
-.tech-ios { background: #1C1C1E; color: white; border-radius: 18px; }
-.tech-git { background: #F05032; color: white; }
-.tech-firebase { background: #FFA611; color: white; }
-.tech-python { background: #3776AB; color: white; }
-.tech-js { background: #F7DF1E; color: #333; }
-.tech-docker { background: #2496ED; color: white; }
+.tech-pill-icon i {
+    font-size: 1.2rem;
+}
 
-.tech-label {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.tc-swift { color: #F05138; }
+.tc-objc { color: #438EFF; }
+.tc-cpp { color: #00599C; }
+.tc-uikit { color: #007AFF; }
+.tc-swiftui { color: #0071E3; }
+.tc-avkit { color: #AF52DE; }
+.tc-coredata { color: #5856D6; }
+.tc-arkit { color: #FF9500; }
+.tc-xcode { color: #147EFB; }
+.tc-git { color: #F05032; }
+.tc-firebase { color: #FFA611; }
+.tc-cocoapods { color: #EE3322; }
+.tc-mvvm { color: #30D158; }
+.tc-gcd { color: #5AC8FA; }
+.tc-async { color: #FF2D55; }
+.tc-sdui { color: #BF5AF2; }
+
+.tech-pill-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--swift-text);
 }
 
 /* ========================================
-   FOOTER
+   ABOUT SECTION
+   ======================================== */
+.about-wrapper {
+    max-width: 700px;
+}
+
+.about-text {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.about-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.about-link {
+    color: var(--swift-orange) !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.about-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* ========================================
+   FOOTER — swift.org style
    ======================================== */
 .site-footer {
-    background-color: var(--white);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 1.5rem 3rem;
+    background: var(--swift-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-grid {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-brand {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--swift-white);
+    margin-bottom: 0.3rem;
+}
+
+.footer-desc {
+    font-size: 0.85rem;
+    color: var(--swift-gray-400);
+    max-width: 300px;
+    line-height: 1.6;
+}
+
+.footer-heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--swift-gray-400);
+    margin-bottom: 0.5rem;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: var(--swift-white) !important;
+}
+
+.footer-bottom {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-top: 1.5rem;
 }
 
 .footer-copyright {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: var(--text-muted);
-}
-
-.social-circle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--dark);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0.3rem;
-    transition: all 0.3s;
-    text-decoration: none;
-}
-
-.social-circle:hover {
-    background-color: var(--gold);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.social-circle i {
-    color: white;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    color: var(--swift-gray-600);
 }
 
 /* ========================================
    BOOTSTRAP OVERRIDES
    ======================================== */
 .card {
-    background: var(--white) !important;
+    background: transparent !important;
     border: none !important;
-    border-radius: 8px !important;
     box-shadow: none !important;
 }
 
 .card-body {
-    padding: 1rem !important;
+    padding: 0 !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif !important;
-    color: var(--text-dark);
-}
-
-p {
-    color: var(--text-muted);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 a {
-    transition: all 0.3s;
-}
-
-.btn {
-    border-radius: 4px !important;
-    font-weight: 700 !important;
-    transition: all 0.3s !important;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
+    transition: all 0.2s;
 }
 
 .badge {
     display: none !important;
 }
 
+.btn {
+    border-radius: 980px !important;
+    font-weight: 600 !important;
+}
+
 /* ========================================
    RESPONSIVE
    ======================================== */
 @media only screen and (max-width: 992px) {
+    .hero-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
     .hero-heading {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
-    .hero-apple-icon {
-        display: none;
+    .hero-tagline {
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .hero-overlay-shape {
-        display: none;
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image-area {
+        margin-top: 2rem;
+    }
+
+    .hero-swift-bird {
+        font-size: 8rem;
+    }
+
+    .hero-swift-bird i {
+        font-size: 8rem;
+    }
+
+    .feature-right .feature-content {
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .footer-grid {
+        flex-direction: column;
+        gap: 2rem;
     }
 }
 
 @media only screen and (max-width: 768px) {
     .hero-heading {
-        font-size: 2rem;
-        letter-spacing: 1px;
-    }
-
-    .hero-welcome {
-        font-size: 1.5rem;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    .service-icon-circle {
-        width: 100px;
-        height: 100px;
-    }
-
-    .service-icon-circle i {
         font-size: 2.5rem;
     }
 
-    .app-icon {
-        width: 110px;
-        height: 110px;
+    .hero-tagline {
+        font-size: 1rem;
     }
 
-    .app-icon i {
-        font-size: 3rem;
+    .swift-section-title {
+        font-size: 2rem;
     }
 
-    .tech-icon-box {
-        width: 70px;
-        height: 70px;
+    .feature-title {
+        font-size: 1.5rem;
+    }
+
+    .exp-card {
+        padding: 1.5rem;
+    }
+
+    .exp-company {
+        font-size: 1.2rem;
+    }
+
+    .hero-swift-bird {
+        font-size: 6rem;
+    }
+
+    .hero-swift-bird i {
+        font-size: 6rem;
     }
 }
 
 @media only screen and (max-width: 480px) {
     .hero-heading {
-        font-size: 1.6rem;
+        font-size: 2rem;
     }
 
-    .site-footer .d-flex {
+    .hero-buttons {
         flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .hero-btn, .hero-btn-outline {
+        width: 100%;
         text-align: center;
-        gap: 1rem;
+    }
+
+    .section-dark, .section-white {
+        padding: 4rem 1.5rem;
+    }
+
+    .tech-pill-row {
+        gap: 0.5rem;
+    }
+
+    .tech-pill {
+        padding: 0.5rem 0.9rem;
     }
 }

@@ -1,43 +1,53 @@
 import Foundation
 import Ignite
 
-struct ServicesSection: HTML {
+struct FeatureHighlights: HTML {
     var body: some HTML {
         Section {
-            Text("SERVICES")
-                .class("section-title")
+            Section {
+                Text("What I Bring")
+                    .class("swift-section-title")
 
-            Text("Developing apps from scratch.")
-                .class("section-subtitle")
+                FeatureBlock(
+                    title: "Performance-Driven",
+                    description: "I optimize for speed and efficiency. From video carousels handling millions of streams to real-time AR tracking, I build apps that are fast and responsive. Every millisecond matters.",
+                    icon: "speedometer2",
+                    alignment: "left"
+                )
 
-            Grid {
-                ServiceItem(
-                    icon: "cart-fill",
-                    title: "App Payment",
-                    description: "Integrate payment SDK into your app, Stripe, Razorpay, ApplePay and more."
+                FeatureBlock(
+                    title: "Production-Ready",
+                    description: "Experienced with the full iOS release cycle — provisioning certificates, TestFlight beta testing, automated DSYM uploads to Firebase Crashlytics, and App Store deployment. I ship reliable code.",
+                    icon: "rocket-takeoff",
+                    alignment: "right"
                 )
-                ServiceItem(
-                    icon: "laptop",
-                    title: "Responsive Design",
-                    description: "Build for iPhones and iPads, one design for multiple device sizes, great fit."
+
+                FeatureBlock(
+                    title: "User-Focused",
+                    description: "Built a health chatbot achieving 6,500+ active users. Engineered notification systems that reduced patient wait times. I design experiences that solve real problems for real people.",
+                    icon: "person-heart",
+                    alignment: "left"
                 )
-                ServiceItem(
-                    icon: "brush",
-                    title: "Intuitive UX/UI Design",
-                    description: "Complex UI's for iOS apps involving custom layouts, transitions and animations."
+
+                FeatureBlock(
+                    title: "Versatile",
+                    description: "From UIKit to SwiftUI, AVKit to ARKit, Agora to SendBird — I pick the right tool for the job. Comfortable with MVC, MVVM, hybrid SDUI architectures, and modern concurrency patterns.",
+                    icon: "layers",
+                    alignment: "right"
                 )
             }
-            .columns(3)
+            .class("swift-container")
         }
         .class("section-white")
-        .id("services")
+        .id("skills")
     }
 }
 
-struct ServiceItem: HTML {
-    let icon: String
+struct FeatureBlock: HTML {
     let title: String
     let description: String
+    let icon: String
+    let alignment: String
 
     var body: some HTML {
         Section {
@@ -46,15 +56,16 @@ struct ServiceItem: HTML {
                     Image(systemName: icon)
                         .accessibilityLabel(title)
                 }
+                .class("feature-icon")
+
+                Text(title)
+                    .class("feature-title")
+
+                Text(description)
+                    .class("feature-desc")
             }
-            .class("service-icon-circle")
-
-            Text(title)
-                .class("service-title")
-
-            Text(description)
-                .class("service-desc")
+            .class("feature-content")
         }
-        .class("service-item")
+        .class("feature-block feature-\(alignment)")
     }
 }

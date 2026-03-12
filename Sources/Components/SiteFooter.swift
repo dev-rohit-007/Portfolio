@@ -4,34 +4,59 @@ import Ignite
 struct SiteFooter: HTML {
     var body: some HTML {
         Section {
-            HStack {
-                Text("Copyright © Rohit Mishra Portfolio 2026")
-                    .class("footer-copyright")
+            Section {
+                Section {
+                    Text("Rohit Mishra")
+                        .class("footer-brand")
+
+                    Text("iOS Developer based in Bengaluru, India. Building high-performance mobile experiences.")
+                        .class("footer-desc")
+                }
+                .class("footer-col")
 
                 Section {
-                    SocialLink(url: "https://twitter.com/", icon: "twitter-x", label: "Twitter")
-                    SocialLink(url: "https://github.com/dev-rohit-007", icon: "github", label: "GitHub")
-                    SocialLink(url: "https://linkedin.com/in/", icon: "linkedin", label: "LinkedIn")
-                    SocialLink(url: "mailto:your.email@example.com", icon: "envelope-fill", label: "Email")
+                    Text("Links")
+                        .class("footer-heading")
+
+                    Link("GitHub", target: "https://github.com/dev-rohit-007")
+                        .target(.blank)
+                        .relationship(.noOpener, .noReferrer)
+                        .class("footer-link")
+
+                    Link("LinkedIn", target: "https://www.linkedin.com/in/rohitalgodeveloper/")
+                        .target(.blank)
+                        .relationship(.noOpener, .noReferrer)
+                        .class("footer-link")
+
+                    Link("Email", target: "mailto:rohit.algo.developer@gmail.com")
+                        .class("footer-link")
                 }
+                .class("footer-col")
+
+                Section {
+                    Text("Community")
+                        .class("footer-heading")
+
+                    Link("Stack Overflow", target: "https://stackoverflow.com")
+                        .target(.blank)
+                        .relationship(.noOpener, .noReferrer)
+                        .class("footer-link")
+
+                    Link("Swift Forums", target: "https://forums.swift.org")
+                        .target(.blank)
+                        .relationship(.noOpener, .noReferrer)
+                        .class("footer-link")
+                }
+                .class("footer-col")
             }
+            .class("footer-grid")
+
+            Section {
+                Text("© 2026 Rohit Mishra. All rights reserved.")
+                    .class("footer-copyright")
+            }
+            .class("footer-bottom")
         }
         .class("site-footer")
-    }
-}
-
-struct SocialLink: HTML {
-    let url: String
-    let icon: String
-    let label: String
-
-    var body: some HTML {
-        Link(target: url) {
-            Image(systemName: icon)
-                .accessibilityLabel(label)
-        }
-        .target(.blank)
-        .relationship(.noOpener, .noReferrer)
-        .class("social-circle")
     }
 }
