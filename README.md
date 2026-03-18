@@ -2,8 +2,6 @@
 
 A single-page developer portfolio built entirely in **Swift** using [Ignite](https://github.com/twostraws/Ignite) static site generator. Deployed automatically to GitHub Pages.
 
-**Live:** [dev-rohit-007.github.io/Portfolio](https://dev-rohit-007.github.io/Portfolio)
-
 ## Sections
 
 - **Hero** — Dark cinematic landing with gold accent typography
