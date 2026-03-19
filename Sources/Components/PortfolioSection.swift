@@ -11,7 +11,7 @@ struct PortfolioSection: HTML {
                 Text("Real-world apps shipped to millions of users.")
                     .class("swift-section-subtitle")
 
-                Grid {
+                Section {
                     ProjectCard(
                         name: "CarPlay Audio",
                         description: "Full CarPlay integration for an audio streaming app — background playback, offline caching, crash-free image scaling, and seamless in-car UX.",
@@ -55,8 +55,7 @@ struct PortfolioSection: HTML {
                         colorClass: "project-flam"
                     )
                 }
-                .columns(2)
-                .class("projects-grid")
+                .class("feature-grid")
             }
             .class("swift-container")
         }
