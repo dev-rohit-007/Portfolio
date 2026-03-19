@@ -1,7 +1,11 @@
 import Foundation
 import Ignite
 
-struct ExperienceSection: HTML {
+struct ExperiencePage: StaticPage {
+    var title = "Experience"
+    var path = "/experience"
+    var description = "3+ years of production iOS development at Pocket FM, Flam, Practo, and Raja Software Labs."
+
     var body: some HTML {
         Section {
             Section {
@@ -67,38 +71,5 @@ struct ExperienceSection: HTML {
         }
         .class("section-dark")
         .id("experience")
-    }
-}
-
-struct ExpTimeline: HTML {
-    let company: String
-    let role: String
-    let period: String
-    let highlights: [String]
-    let colorClass: String
-
-    var body: some HTML {
-        Section {
-            Section {
-                Text(company)
-                    .class("exp-company")
-
-                Text(role)
-                    .class("exp-role")
-
-                Text(period)
-                    .class("exp-period")
-            }
-            .class("exp-header")
-
-            Section {
-                ForEach(highlights) { highlight in
-                    Text(highlight)
-                        .class("exp-highlight")
-                }
-            }
-            .class("exp-body")
-        }
-        .class("exp-timeline-card \(colorClass)")
     }
 }

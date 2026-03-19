@@ -6,10 +6,10 @@ struct Home: StaticPage {
 
     var body: some HTML {
         HeroSection()
-        ExperienceSection()
+        BlogSection()
+        TechSection()
         FeatureHighlights()
         PortfolioSection()
-        TechSection()
         AboutSection()
     }
 }

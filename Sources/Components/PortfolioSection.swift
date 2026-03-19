@@ -8,58 +8,51 @@ struct PortfolioSection: HTML {
                 Text("Projects")
                     .class("swift-section-title")
 
-                Text("Apps I've built and contributed to.")
+                Text("Real-world apps shipped to millions of users.")
                     .class("swift-section-subtitle")
 
                 Grid {
                     ProjectCard(
-                        name: "Pocket FM - CarPlay",
-                        description: "End-to-end CarPlay integration for the audio streaming platform. Fixed crashes, image scaling, background playback, and offline handling.",
-                        tags: ["CarPlay", "AVFoundation", "UIKit"],
+                        name: "CarPlay Audio",
+                        description: "Full CarPlay integration for an audio streaming app — background playback, offline caching, crash-free image scaling, and seamless in-car UX.",
+                        tags: ["CarPlay", "AVFoundation", "Offline"],
                         icon: "car-fill",
                         colorClass: "project-pocketfm"
                     )
                     ProjectCard(
-                        name: "Home & Collections",
-                        description: "Built the Collections Module and Home Screen revamp for better content discovery. Server-driven UI architecture.",
+                        name: "Server-Driven Home",
+                        description: "Dynamic home screen powered by server-driven UI. Configurable layouts, A/B testable modules, and a collections discovery engine — all without app updates.",
                         tags: ["SDUI", "UIKit", "SwiftUI"],
-                        icon: "music.note.house",
+                        icon: "house-fill",
                         colorClass: "project-pocketfm2"
                     )
                     ProjectCard(
-                        name: "Google Home (Camera)",
-                        description: "Developed and tested camera integration features for the iOS Google Home app. Implemented analytics logging for camera events.",
-                        tags: ["UIKit", "Testing", "Analytics"],
+                        name: "Smart Camera",
+                        description: "Camera feed integration with live event analytics for a smart home platform. Real-time stream rendering with low-latency HLS playback.",
+                        tags: ["AVKit", "HLS", "Analytics"],
                         icon: "camera-video-fill",
                         colorClass: "project-google"
                     )
                     ProjectCard(
-                        name: "Practo Health Chatbot",
-                        description: "Health query chatbot with SendBird SDK. User history analysis for personalized doctor recommendations. 6,500+ active users.",
-                        tags: ["SendBird", "UIKit", "CoreData"],
+                        name: "Health Chatbot",
+                        description: "Real-time health query chatbot with chat history, doctor recommendations, and 6,500+ monthly active users.",
+                        tags: ["SendBird", "CoreData", "Chat"],
                         icon: "chat-dots-fill",
                         colorClass: "project-practo"
                     )
                     ProjectCard(
-                        name: "Practo Video Consult",
-                        description: "Dynamic video carousel with AVKit and Picture-in-Picture via Agora SDK. Generated ₹2 crore+ in ad revenue.",
-                        tags: ["AVKit", "Agora", "m3u8"],
+                        name: "Video Carousel & PiP",
+                        description: "Swipeable video carousel with m3u8 streaming and Picture-in-Picture for live video consultations. Drove significant ad revenue growth.",
+                        tags: ["AVKit", "Agora", "PiP"],
                         icon: "play-circle-fill",
                         colorClass: "project-video"
                     )
                     ProjectCard(
-                        name: "Flam AR Engine",
-                        description: "Real-time 3D object tracking with ARKit. C++ GPU library for rendering UI elements on detected objects.",
-                        tags: ["ARKit", "C++", "GPU"],
+                        name: "AR Object Tracker",
+                        description: "Real-time 3D surface detection and object tracking with GPU-accelerated UI overlays rendered via a custom C++ pipeline.",
+                        tags: ["ARKit", "C++", "Metal"],
                         icon: "badge-ar-fill",
                         colorClass: "project-flam"
-                    )
-                    ProjectCard(
-                        name: "Trailer-Zone",
-                        description: "iOS app to search and watch movie trailers without authentication. Built with UICollectionView, UITableView, and AutoLayout.",
-                        tags: ["UIKit", "API", "AutoLayout"],
-                        icon: "film",
-                        colorClass: "project-trailer"
                     )
                 }
                 .columns(2)

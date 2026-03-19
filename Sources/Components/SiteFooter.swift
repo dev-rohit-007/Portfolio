@@ -52,9 +52,16 @@ struct SiteFooter: HTML {
             .class("footer-grid")
 
             Section {
-                Text("© 2026 Rohit Mishra. All rights reserved.")
-                    .class("footer-copyright")
-            }
+				Text {
+					"© 2026 Rohit Mishra. All rights reserved | Created in Swift with"
+					" "
+					Link("Ignite", target: "https://github.com/twostraws/Ignite")
+						.target(.newWindow)
+						.relationship(.noOpener)
+						.role(.none)
+				}
+				.class("footer-copyright")
+			}
             .class("footer-bottom")
         }
         .class("site-footer")

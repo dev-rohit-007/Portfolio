@@ -23,4 +23,10 @@ struct PortfolioSite: Site {
 
     var homePage = Home()
     var layout = MainLayout()
+
+    var staticPages: [any StaticPage] {
+        BlogList()
+        BlogPost_ObjCRuntime()
+        ExperiencePage()
+    }
 }

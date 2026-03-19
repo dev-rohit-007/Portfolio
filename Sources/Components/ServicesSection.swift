@@ -8,33 +8,39 @@ struct FeatureHighlights: HTML {
                 Text("What I Bring")
                     .class("swift-section-title")
 
-                FeatureBlock(
-                    title: "Performance-Driven",
-                    description: "I optimize for speed and efficiency. From video carousels handling millions of streams to real-time AR tracking, I build apps that are fast and responsive. Every millisecond matters.",
-                    icon: "speedometer2",
-                    alignment: "left"
-                )
+                Text("Core strengths that define my approach to iOS engineering.")
+                    .class("swift-section-subtitle")
 
-                FeatureBlock(
-                    title: "Production-Ready",
-                    description: "Experienced with the full iOS release cycle — provisioning certificates, TestFlight beta testing, automated DSYM uploads to Firebase Crashlytics, and App Store deployment. I ship reliable code.",
-                    icon: "rocket-takeoff",
-                    alignment: "right"
-                )
+                Section {
+                    FeatureCard(
+                        title: "Performance-Driven",
+                        description: "Video carousels handling millions of streams, real-time AR tracking, optimized rendering pipelines. Every millisecond matters.",
+                        icon: "speedometer2",
+                        accent: "fc-perf"
+                    )
 
-                FeatureBlock(
-                    title: "User-Focused",
-                    description: "Built a health chatbot achieving 6,500+ active users. Engineered notification systems that reduced patient wait times. I design experiences that solve real problems for real people.",
-                    icon: "person-heart",
-                    alignment: "left"
-                )
+                    FeatureCard(
+                        title: "Production-Ready",
+                        description: "Full iOS release cycle — provisioning, TestFlight, DSYM uploads to Crashlytics, App Store deployment. I ship reliable code.",
+                        icon: "rocket-takeoff",
+                        accent: "fc-prod"
+                    )
 
-                FeatureBlock(
-                    title: "Versatile",
-                    description: "From UIKit to SwiftUI, AVKit to ARKit, Agora to SendBird — I pick the right tool for the job. Comfortable with MVC, MVVM, hybrid SDUI architectures, and modern concurrency patterns.",
-                    icon: "layers",
-                    alignment: "right"
-                )
+                    FeatureCard(
+                        title: "User-Focused",
+                        description: "Chatbot with 6,500+ active users. Notification systems that reduced wait times. Experiences that solve real problems.",
+                        icon: "person-heart",
+                        accent: "fc-user"
+                    )
+
+                    FeatureCard(
+                        title: "Versatile",
+                        description: "UIKit to SwiftUI, AVKit to ARKit, Agora to SendBird. MVVM, SDUI, modern concurrency — the right tool for the job.",
+                        icon: "layers",
+                        accent: "fc-vers"
+                    )
+                }
+                .class("feature-grid")
             }
             .class("swift-container")
         }
@@ -43,29 +49,26 @@ struct FeatureHighlights: HTML {
     }
 }
 
-struct FeatureBlock: HTML {
+struct FeatureCard: HTML {
     let title: String
     let description: String
     let icon: String
-    let alignment: String
+    let accent: String
 
     var body: some HTML {
         Section {
-            Section {
-                Text {
-                    Image(systemName: icon)
-                        .accessibilityLabel(title)
-                }
-                .class("feature-icon")
-
-                Text(title)
-                    .class("feature-title")
-
-                Text(description)
-                    .class("feature-desc")
+            Text {
+                Image(systemName: icon)
+                    .accessibilityLabel(title)
             }
-            .class("feature-content")
+            .class("fc-icon \(accent)")
+
+            Text(title)
+                .class("fc-title")
+
+            Text(description)
+                .class("fc-desc")
         }
-        .class("feature-block feature-\(alignment)")
+        .class("feature-card-item")
     }
 }

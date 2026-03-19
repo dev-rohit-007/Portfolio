@@ -12,6 +12,7 @@ struct MainLayout: Layout {
 			SiteNavBar()
 
 			content
+				.font(.bitcount)
 
 			SiteFooter()
 

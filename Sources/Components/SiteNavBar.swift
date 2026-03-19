@@ -4,13 +4,13 @@ import Ignite
 struct SiteNavBar: HTML {
     var body: some HTML {
         NavigationBar(logo: logo) {
-			Link("Experience", target: "#experience")
-			Link("Skills", target: "#skills")
-			Link("Tech", target: "#tech")
-			Link("Projects", target: "#projects")
-			Link("About", target: "#about")
+			Link("Home", target: "/")
+			Link("Blog", target: "/blog")
+			Link("Experience", target: "/experience")
+			Link("Projects", target: "/#projects")
+			Link("About", target: "/#about")
         }
-        .navigationItemAlignment(.center)
+        .navigationItemAlignment(.leading)
         .position(.fixedTop)
         .background(.ultraThinMaterial)
 		.font(font)
@@ -22,6 +22,6 @@ struct SiteNavBar: HTML {
     @InlineElementBuilder
     private var logo: some InlineElement {
     }
-    
+
      private var font: Font { .pressStart2P }
 }
