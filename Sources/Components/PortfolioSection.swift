@@ -20,10 +20,10 @@ struct PortfolioSection: HTML {
                         colorClass: "project-pocketfm"
                     )
                     ProjectCard(
-                        name: "Pocket FM - Home & Collections",
+                        name: "Home & Collections",
                         description: "Built the Collections Module and Home Screen revamp for better content discovery. Server-driven UI architecture.",
-                        tags: ["SDUI", "UIKit", "REST API"],
-                        icon: "music-note-list",
+                        tags: ["SDUI", "UIKit", "SwiftUI"],
+                        icon: "music.note.house",
                         colorClass: "project-pocketfm2"
                     )
                     ProjectCard(
@@ -62,7 +62,7 @@ struct PortfolioSection: HTML {
                         colorClass: "project-trailer"
                     )
                 }
-                .columns(3)
+                .columns(2)
                 .class("projects-grid")
             }
             .class("swift-container")

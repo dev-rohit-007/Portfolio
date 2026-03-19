@@ -203,16 +203,91 @@ body {
 .hero-image-area {
     flex: 0 0 auto;
     position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hero-swift-bird {
-    font-size: 12rem;
-    color: rgba(240, 81, 56, 0.12);
-    line-height: 1;
+/* Animated hero graphic */
+.hero-floating-graphic {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hero-swift-bird i {
-    font-size: 12rem;
+.hero-swift-svg {
+    width: 180px;
+    height: 180px;
+    transition: transform 0.15s ease-out;
+    animation: heroFloat 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 40px rgba(240, 81, 56, 0.3));
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* Code particles */
+.hero-particle {
+    position: absolute;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(240, 81, 56, 0.5);
+    transition: transform 0.2s ease-out;
+    animation: particlePulse 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hero-particle-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.hero-particle-2 { top: 5%; right: 10%; animation-delay: 0.8s; color: rgba(253, 109, 66, 0.5); }
+.hero-particle-3 { bottom: 15%; left: 0%; animation-delay: 1.6s; }
+.hero-particle-4 { bottom: 5%; right: 5%; animation-delay: 2.4s; color: rgba(247, 206, 70, 0.5); }
+.hero-particle-5 { top: 45%; left: -10%; animation-delay: 1.2s; }
+.hero-particle-6 { top: 40%; right: -5%; animation-delay: 2s; color: rgba(253, 109, 66, 0.4); }
+
+@keyframes particlePulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* Orbiting rings */
+.hero-orbit {
+    position: absolute;
+    border: 1px solid rgba(240, 81, 56, 0.15);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+}
+
+.hero-orbit-1 {
+    width: 240px;
+    height: 240px;
+    margin-left: -120px;
+    margin-top: -120px;
+    animation: orbitSpin 20s linear infinite;
+    border-style: dashed;
+}
+
+.hero-orbit-2 {
+    width: 320px;
+    height: 320px;
+    margin-left: -160px;
+    margin-top: -160px;
+    animation: orbitSpin 30s linear infinite reverse;
+    border-color: rgba(247, 206, 70, 0.1);
+}
+
+@keyframes orbitSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* ========================================
@@ -678,12 +753,33 @@ a {
         margin-top: 2rem;
     }
 
-    .hero-swift-bird {
-        font-size: 8rem;
+    .hero-image-area {
+        width: 250px;
+        height: 250px;
     }
 
-    .hero-swift-bird i {
-        font-size: 8rem;
+    .hero-floating-graphic {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero-swift-svg {
+        width: 140px;
+        height: 140px;
+    }
+
+    .hero-orbit-1 {
+        width: 200px;
+        height: 200px;
+        margin-left: -100px;
+        margin-top: -100px;
+    }
+
+    .hero-orbit-2 {
+        width: 260px;
+        height: 260px;
+        margin-left: -130px;
+        margin-top: -130px;
     }
 
     .feature-right .feature-content {
@@ -722,12 +818,23 @@ a {
         font-size: 1.2rem;
     }
 
-    .hero-swift-bird {
-        font-size: 6rem;
+    .hero-image-area {
+        width: 200px;
+        height: 200px;
     }
 
-    .hero-swift-bird i {
-        font-size: 6rem;
+    .hero-floating-graphic {
+        width: 180px;
+        height: 180px;
+    }
+
+    .hero-swift-svg {
+        width: 110px;
+        height: 110px;
+    }
+
+    .hero-particle {
+        font-size: 0.7rem;
     }
 }
 

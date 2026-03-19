@@ -10,7 +10,7 @@ struct AboutSection: HTML {
 
                 Section {
                     Section {
-                        Text("B.Tech in Computer Science from Guru Gobind Singh Indraprastha University (CGPA: 8.28). Based in Bengaluru, I've spent 3+ years building iOS apps that impact millions — from healthcare platforms at Practo to AR experiences at Flam, and camera features for Google Home at Raja Software Labs.")
+                        Text("I've spent 3+ years building iOS apps that impact millions — from healthcare platforms at Practo to AR experiences at Flam, and camera features for Google Home.")
                             .class("about-text")
 
                         Text("I'm passionate about writing clean, modular Swift code and creating smooth user experiences. When I'm not coding, I'm exploring new Apple frameworks and contributing to the developer community.")
@@ -27,7 +27,7 @@ struct AboutSection: HTML {
                                 .relationship(.noOpener, .noReferrer)
                                 .class("about-link")
 
-                            Link("rohit.algo.developer@gmail.com", target: "mailto:rohit.algo.developer@gmail.com")
+                            Link("Mail", target: "mailto:rohit.algo.developer@gmail.com")
                                 .class("about-link")
                         }
                         .class("about-links")

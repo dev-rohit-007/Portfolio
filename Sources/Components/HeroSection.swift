@@ -7,18 +7,21 @@ struct HeroSection: HTML {
             Section {
                 Section {
                     Text {
-                        Span("Rohit Mishra")
+                        Span("Hi, I'm Rohit")
                     }
                     .class("hero-name")
 
                     Text {
+                        Span("I craft")
+                        " "
                         Span("iOS")
                             .class("hero-gradient-text")
-                        Span(" Developer")
+                        " "
+                        Span("experiences")
                     }
                     .class("hero-heading")
 
-                    Text("3+ years crafting elegant, high-performance iOS applications. From ARKit to real-time video, I build apps that delight users and drive business results.")
+                    Text("3+ years of end-to-end iOS development. From legacy UIKit architectures to modern SwiftUI interfaces, I build robust mobile solutions engineered for performance and user retention.")
                         .class("hero-tagline")
 
                     Section {
@@ -33,15 +36,12 @@ struct HeroSection: HTML {
                 .class("hero-content")
 
                 Section {
-                    Text {
-                        Image(systemName: "apple")
-                            .accessibilityLabel("Apple logo")
-                    }
-                    .class("hero-swift-bird")
+                    Include("hero-swift-logo.html")
                 }
                 .class("hero-image-area")
             }
             .class("hero-inner")
+			.font(.bitcount)
         }
         .class("hero-section")
     }
