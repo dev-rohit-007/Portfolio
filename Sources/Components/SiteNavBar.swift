@@ -3,18 +3,25 @@ import Ignite
 
 struct SiteNavBar: HTML {
     var body: some HTML {
-        NavigationBar {
-            Link("Experience", target: "#experience")
-            Link("Skills", target: "#skills")
-            Link("Projects", target: "#projects")
-            Link("Tech", target: "#tech")
-            Link("About", target: "#about")
-        } logo: {
-            Span("Rohit Mishra")
-                .class("navbar-brand-custom")
+        NavigationBar(logo: logo) {
+			Link("Experience", target: "#experience")
+			Link("Skills", target: "#skills")
+			Link("Tech", target: "#tech")
+			Link("Projects", target: "#projects")
+			Link("About", target: "#about")
         }
-        .navigationItemAlignment(.trailing)
-        .background(.black)
+        .navigationItemAlignment(.center)
         .position(.fixedTop)
+        .background(.ultraThinMaterial)
+		.font(font)
+		.font(.lead)
+		.foregroundStyle(.primary)
     }
+
+
+    @InlineElementBuilder
+    private var logo: some InlineElement {
+    }
+    
+     private var font: Font { .pressStart2P }
 }
