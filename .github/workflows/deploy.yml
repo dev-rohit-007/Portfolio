@@ -21,6 +21,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Clean old build
+        run: rm -rf Build
+
       - name: Build Ignite site
         run: swift run
 
