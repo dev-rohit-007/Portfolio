@@ -15,30 +15,41 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
-    runs-on: macos-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Clean old build
-        run: rm -rf Build
-
-      - name: Build Ignite site
-        run: swift run
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'Build'
-
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
+    runs-on: macos-15
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Clean old build
+        run: rm -rf Build
+
+      - name: Build
+        run: |
+          xcodebuild \
+            -configuration debug \
+            -scheme "Portfolio" \
+            -sdk macosx \
+            -destination 'platform=macOS' \
+            -derivedDataPath ".build/derivedData"
+          .build/derivedData/Build/Products/debug/Portfolio
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './Build'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
