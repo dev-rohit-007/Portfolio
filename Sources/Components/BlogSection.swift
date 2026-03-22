@@ -18,7 +18,7 @@ struct BlogSection: HTML {
                         date: "Dec 5, 2024",
                         readTime: "15 min",
                         tag: "Objective-C",
-                        url: "/blog/objective-c-runtime"
+                        url: "/Portfolio/blog/objective-c-runtime"
                     )
 
                     BlogCard(
@@ -27,7 +27,7 @@ struct BlogSection: HTML {
                         date: "",
                         readTime: "",
                         tag: "Swift",
-                        url: "/blog"
+                        url: "/Portfolio/blog"
                     )
 
                     BlogCard(
@@ -36,13 +36,13 @@ struct BlogSection: HTML {
                         date: "",
                         readTime: "",
                         tag: "iOS",
-                        url: "/blog"
+                        url: "/Portfolio/blog"
                     )
                 }
                 .class("blog-cards-row")
 
                 Section {
-                    Link("View All Articles", target: "/blog")
+                    Link("View All Articles", target: "/Portfolio/blog")
                         .class("hero-btn-outline blog-more-btn")
                 }
                 .class("blog-more-wrapper")

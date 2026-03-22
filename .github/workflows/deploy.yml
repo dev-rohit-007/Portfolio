@@ -42,6 +42,12 @@ jobs:
             -derivedDataPath ".build/derivedData"
           .build/derivedData/Build/Products/debug/Portfolio
 
+      - name: Fix subpath references
+        run: |
+          # Fix framework-generated JS paths that don't include /Portfolio/ prefix
+          find Build -name '*.html' -exec sed -i '' 's|src="/js/|src="/Portfolio/js/|g' {} +
+          find Build -name '*.html' -exec sed -i '' 's|href="/js/|href="/Portfolio/js/|g' {} +
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
