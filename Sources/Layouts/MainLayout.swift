@@ -16,7 +16,7 @@ struct MainLayout: Layout {
 
 			SiteFooter()
 
-			Script(file: "/Portfolio/js/hero-animations.js")
+			Script(file: "/js/hero-animations.js")
 		}
 	}
 }

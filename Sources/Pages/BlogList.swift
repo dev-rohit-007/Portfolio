@@ -22,7 +22,7 @@ struct BlogList: StaticPage {
                         date: "Dec 5, 2024",
                         readTime: "15 min read",
                         tag: "Objective-C",
-                        url: "/Portfolio/blog/objective-c-runtime"
+                        url: "/blog/objective-c-runtime"
                     )
                 }
                 .class("blog-list-grid")

@@ -15,7 +15,7 @@ extension Font {
 	static var pressStart2P: Font {
 		Font(
 			name: "PressStart2P",
-			source: "/Portfolio/font/PressStart2P-Regular.ttf"
+			source: "/font/PressStart2P-Regular.ttf"
 		)
 	}
 	
@@ -25,7 +25,7 @@ extension Font {
 	static var nunito: Font {
 		Font(
 			name: "Nunito",
-			source: "/Portfolio/font/Nunito-VariableFont_wght.ttf"
+			source: "/font/Nunito-VariableFont_wght.ttf"
 		)
 	}
 	
@@ -33,7 +33,7 @@ extension Font {
 	static var bitcount: Font {
 		Font(
 			name: "Bitcount",
-			source: "/Portfolio/font/BitcountSingle-Regular.ttf"
+			source: "/font/BitcountSingle-Regular.ttf"
 		)
 	}
 }
